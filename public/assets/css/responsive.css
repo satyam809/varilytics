@@ -1,0 +1,236 @@
+@media (max-width: 1199px) {
+.numbers-counting2 p {
+    font-size: 14px;
+}
+.RequestDataArea ul li {
+    font-size: 18px;
+    word-break: break-word;
+}
+.prevention .have-symptom-content .servImg {
+    height: 185px;
+}
+.covid-world-widget .updated-time .col-md-4.col-lg-4.col-6,
+.statisticsMatterArea .col-md-3,
+.statisticsMatterArea .statisticsMatterBox .col-xl-6,
+.prevention .justify-content-center .col-xl-3.col-lg-3.col-md-6 {
+    flex: 50%;
+    max-width: 50%;
+}
+.card-box-border .col label {
+    font-size: 13px;
+}
+}
+
+@media (max-width: 991px) {
+.hero {
+    height: 100%;
+}
+.hero .col-xl-5.col-lg-5, .hero-content h1 br {
+    display: none;
+}
+.hero-content h1 {
+    font-size: 38px;
+}
+.numbers-counting2 .col:last-child {
+    margin-top: 15px;
+}
+.footer .footer-upper ul li a.btn {
+    margin: 5px 0;
+}
+.hero .container {
+    padding-bottom: 50px;
+}
+.img-holder {
+    display: none;
+}
+.card-box-border .col label {
+   line-height: 13px;
+}
+.card-box-border .col button.submit_btn.waves-effect {
+    height: auto !important;
+    padding: 10px 15px;
+    margin-top: 25px;
+}
+.col-md-3, .col-md-9, .col-12.col-md-8.col-lg-6, .graph.col-xs-12.col-md-6 {
+    flex: 100%;
+    max-width: 100%;
+    padding: 0 15px !important;
+}
+.why-choose .why-section-box {
+    border: none;
+}
+.browse_topicsmain .browse-category .cat_box {
+    width: 18%;
+}
+}
+
+@media (max-width: 768px) { 
+.why-choose .col-md-6.col-xs-12 {
+    flex: 100%;
+    max-width: 100%;
+}
+.numbers-counting h3 {
+    font-size: 30px;
+}
+.numbers-counting p {
+    font-size: 14px;
+}
+.footer {
+    text-align: center;
+}
+.footer .col-md-4 {
+    flex: 100%;
+    max-width: 100%;
+}
+}
+
+@media (max-width: 640px) { 
+.covid-world-widget .updated-time .col-md-4.col-lg-4.col-6,
+.numbers-counting2 .col,
+.prevention .justify-content-center .col-xl-3.col-lg-3.col-md-6 {
+    flex: 100%;
+    max-width: 100%;
+}
+.numbers-counting2 .col { 
+    margin: 10px 0;
+}
+.why-choose .why-section-box,
+.why-choose .borLineArea .why-section-box {
+    border: none;
+}
+.why-choose .table {
+    margin-bottom: 20px;
+}
+.covid-world-widget ul.infoImgArea li img {
+    height: 250px;
+}
+.login .nav-tabs .nav-link {
+    font-size: 14px;
+    padding: 7px;
+}
+.login .nav-tabs {
+    justify-content: center;
+}
+.login .fxt-header p {
+    font-size: 20px !important;
+}
+.login .fxt-header p + p {
+    font-size: 14px !important;
+}
+.page-title h3 {
+    font-size: 26px;
+}
+.browse_topicsmain .browse-category .cat_box {
+    width: 22%;
+}
+}
+
+@media (max-width: 480px) {
+.statisticsMatterArea .col-md-3,
+.numbers-counting .col {
+    flex: 100%;
+    max-width: 100%;
+}
+.numbers-counting .col {
+    margin: 10px 0;
+}
+.statisticsMatterArea .statisticsMatterBox img {
+    height: 150px;
+}
+.RequestDataArea .row {
+    display: flex; 
+    flex-flow: column;
+}
+.RequestDataArea .col-md-4 {
+    order: 2;
+    -webkit-order: 2;
+    padding: 0 15px !important;
+}
+.RequestDataArea .col-md-8 {
+    order: 1;
+    -webkit-order: 1;
+    padding: 0 15px !important;
+}
+.alert {
+    text-align: center;
+}
+.alert .text-right.float-right.row {
+    float: unset !important;
+}
+.browse_topicsmain .browse-category .cat_box {
+    width: 30%;
+}
+.data-times .col, .why-choose .col, .sectionOne .col, .sectionTwo .col {
+    max-width: 100%;
+    flex: 100%;
+}
+.create-report-data ul li {
+    width: 95%;
+}
+.why-choose .col { 
+    margin: 5px 0;
+}
+.viewPage .search-container {
+    position: relative;
+}
+.world-atlas-header li {
+    width: 100%;
+    margin: 0;
+}
+.IndiaStArea li {
+    width: 50%;
+}
+.brand-container-wrapper .brand-block ul li {
+    width: 100%;
+}
+.card-box-border .d-flex {
+    display: block !important;
+}
+.col img {
+    width: 100%;
+}
+.navigation .navbar .dropdown-menu ul {
+    margin-top: 0;
+    overflow: hidden;
+    height: 190px;
+}
+.navigation .navbar .dropdown-menu ul li.dropdown-toggle2 {
+    margin: 0;
+    position: relative;
+}
+.navigation .navbar .dropdown-menu ul li.dropdown-toggle2 a {
+   position: relative;
+   padding-left: 0;
+}
+.navigation .navbar .dropdown-menu ul li.dropdown-toggle2 > a.dropdown-item {
+    background: #f8f9fe;
+}
+.navigation .navbar ul .dropdown-menu2 {
+    display: block !important;
+    opacity: 1;
+    left: 0;
+    padding-left: 10px;
+    margin-top: 18px;
+    width: 100%;
+    float: left;
+    visibility: visible;
+}
+li.dropdown .dropdown-menu ul {
+    float: left;
+    width: 100%;
+    height: 200px !important;
+}
+}
+
+@media (max-width: 400px) {
+.browse_topicsmain .browse-category .cat_box {
+    width: 29%;
+}
+}
+
+
+@media (max-width: 375px) {
+.browse_topicsmain .browse-category .cat_box {
+    width: 97%;
+}
+}

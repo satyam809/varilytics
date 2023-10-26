@@ -1,0 +1,277 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+//use App\Http\Controllers\AdminController;
+
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('email', 'App\Http\Controllers\User@email');
+Route::get('', 'App\Http\Controllers\User@index');
+Route::get('index', 'App\Http\Controllers\User@index');
+Route::get('agriculture', 'App\Http\Controllers\User@agriculture');
+Route::get('art_design', 'App\Http\Controllers\User@art_design');
+Route::get('education', 'App\Http\Controllers\User@education');
+Route::get('finance', 'App\Http\Controllers\User@finance');
+Route::get('statistics', 'App\Http\Controllers\User@statistics');
+Route::get('insights', 'App\Http\Controllers\User@insights');
+Route::get('infographics', 'App\Http\Controllers\User@infographics');
+Route::get('visuals', 'App\Http\Controllers\User@visuals');
+Route::get('analytics', 'App\Http\Controllers\User@analytics');
+Route::get('dashboards', 'App\Http\Controllers\User@dashboards');
+Route::get('on_demand_services', 'App\Http\Controllers\User@on_demand_services');
+Route::get('data_atlas', 'App\Http\Controllers\User@data_atlas');
+Route::get('data_board', 'App\Http\Controllers\User@data_board');
+Route::get('data_coverage', 'App\Http\Controllers\User@data_coverage');
+Route::get('simple_search', 'App\Http\Controllers\User@simple_search');
+Route::get('custom_query', 'App\Http\Controllers\User@custom_query');
+Route::get('compare_sources', 'App\Http\Controllers\User@compare_sources');
+Route::get('create', 'App\Http\Controllers\User@create');
+Route::get('publish', 'App\Http\Controllers\User@publish');
+Route::get('data_store', 'App\Http\Controllers\User@data_store');
+Route::get('dashboard', 'App\Http\Controllers\User@dashboard');
+Route::get('inforgraphic', 'App\Http\Controllers\User@inforgraphic');
+Route::get('outlooks', 'App\Http\Controllers\User@outlooks');
+Route::get('publications', 'App\Http\Controllers\User@publications');
+Route::get('reports', 'App\Http\Controllers\User@reports');
+Route::get('surveys', 'App\Http\Controllers\User@surveys');
+Route::get('varisurvey', 'App\Http\Controllers\User@varisurvey');
+Route::get('data_visuals', 'App\Http\Controllers\User@data_visuals');
+Route::get('whitepapers', 'App\Http\Controllers\User@whitepapers');
+Route::get('resources', 'App\Http\Controllers\User@resources');
+Route::get('compendiums', 'App\Http\Controllers\User@compendiums');
+Route::get('repositories', 'App\Http\Controllers\User@repositories');
+Route::get('intelligence_system', 'App\Http\Controllers\User@intelligence_system');
+Route::get('newsfeed', 'App\Http\Controllers\User@newsfeed');
+Route::get('blogs', 'App\Http\Controllers\User@blogs');
+Route::get('subscription', 'App\Http\Controllers\User@subscription');
+Route::get('registration', 'App\Http\Controllers\User@registration');
+Route::get('purchase', 'App\Http\Controllers\User@purchase');
+Route::get('basic_access', 'App\Http\Controllers\User@basic_access');
+Route::get('professional_access', 'App\Http\Controllers\User@professional_access');
+Route::get('insights_access', 'App\Http\Controllers\User@insights_access');
+Route::get('premium_access', 'App\Http\Controllers\User@premium_access');
+
+Route::get('contact', 'App\Http\Controllers\User@contact');
+Route::get('login', 'App\Http\Controllers\User@login');
+Route::get('about', 'App\Http\Controllers\User@about');
+Route::get('industry_themes', 'App\Http\Controllers\User@industry_themes');
+Route::get('data_process', 'App\Http\Controllers\User@data_process');
+Route::post('insertContact1', 'App\Http\Controllers\User@insertContact1');
+Route::post('insertContact2', 'App\Http\Controllers\User@insertContact2');
+
+Route::get('forget_password', 'App\Http\Controllers\User@forgetPassword');
+Route::post('check_email', 'App\Http\Controllers\User@check_email');
+Route::get('/change_password', 'App\Http\Controllers\User@change_password');
+Route::post('/save_change_password', 'App\Http\Controllers\User@save_change_password');
+
+
+Route::post('registration', 'App\Http\Controllers\Admin\UsersController@registration');
+
+Route::post('userLoginSubmit', 'App\Http\Controllers\Admin\UsersController@userLoginSubmit');
+
+//Route::get('admin/login', 'App\Http\Controllers\Admin\LoginController@index');
+
+Route::post('admin/userLoginSubmit', 'App\Http\Controllers\Admin\UsersController@userLoginSubmit');
+Route::get('admin/logout', 'App\Http\Controllers\Admin\UsersController@removeSession');
+Route::get('front_parent_topic', 'App\Http\Controllers\Admin\topicController@parent_topic');
+Route::get('front_get_subtopic/{parentId}', 'App\Http\Controllers\Admin\topicController@get_subtopic');
+Route::get('topic_data/{id}', 'App\Http\Controllers\User@topic_data');
+Route::get('get_all_organisation', 'App\Http\Controllers\Admin\organizationController@get');
+
+Route::group(['middleware' => ['userAuth']], function () {
+    Route::get('admin', 'App\Http\Controllers\Admin\HomeController@index');
+    Route::get('admin/index', 'App\Http\Controllers\Admin\HomeController@index');
+
+    Route::get('admin/data_source', 'App\Http\Controllers\Admin\DataSourceController@index');
+    Route::get('admin/data_source_data', 'App\Http\Controllers\Admin\DataSourceController@show');
+    Route::post('admin/data_source_delete/{id}', 'App\Http\Controllers\Admin\DataSourceController@delete');
+
+    Route::get('admin/data_submission', 'App\Http\Controllers\Admin\DataSubmissionController@index');
+    Route::get('admin/data_submission_data', 'App\Http\Controllers\Admin\DataSubmissionController@show');
+    Route::post('admin/data_submission_delete/{id}', 'App\Http\Controllers\Admin\DataSubmissionController@delete');
+
+    Route::get('admin/customer_service', 'App\Http\Controllers\Admin\CustomerServiceController@index');
+    Route::get('admin/customer_service_data', 'App\Http\Controllers\Admin\CustomerServiceController@show');
+    Route::post('admin/customer_service_delete/{id}', 'App\Http\Controllers\Admin\CustomerServiceController@delete');
+
+    Route::get('admin/users', 'App\Http\Controllers\Admin\UsersController@index');
+    Route::get('admin/allusers', 'App\Http\Controllers\Admin\UsersController@show');
+    Route::post('save_roles', 'App\Http\Controllers\Admin\UsersController@save_roles');
+    Route::post('get_userRole/{id}', 'App\Http\Controllers\Admin\UsersController@get_userRole');
+    Route::post('deleteUsers/{id}', 'App\Http\Controllers\Admin\UsersController@delete');
+    Route::get('getUserDetails/{id}', 'App\Http\Controllers\Admin\UsersController@getUserDetails');
+    Route::post('changeUserDetails', 'App\Http\Controllers\Admin\UsersController@changeUserDetails');
+
+    Route::get('admin/organization_countries', 'App\Http\Controllers\Admin\OrgAndCountryController@index');
+    Route::post('save_orgAndCountry', 'App\Http\Controllers\Admin\OrgAndCountryController@save');
+    Route::post('update_orgAndCountry', 'App\Http\Controllers\Admin\OrgAndCountryController@update');
+    Route::get('allOrgAndCountry', 'App\Http\Controllers\Admin\OrgAndCountryController@get');
+    Route::post('deleteOrgAndCountry/{id}', 'App\Http\Controllers\Admin\OrgAndCountryController@delete');
+    Route::post('get_orgAndCountry/{id}', 'App\Http\Controllers\Admin\OrgAndCountryController@getSingle');
+
+    Route::get('admin/commodityYearValue', 'App\Http\Controllers\Admin\commYrValueController@index');
+    Route::post('save_commYrValue', 'App\Http\Controllers\Admin\commYrValueController@save');
+    Route::post('update_commYrVal', 'App\Http\Controllers\Admin\commYrValueController@update');
+    Route::post('deleteCommYrValue/{id}', 'App\Http\Controllers\Admin\commYrValueController@delete');
+    Route::get('allCommodityYearValue', 'App\Http\Controllers\Admin\commYrValueController@get');
+    Route::post('get_commYrVal/{id}', 'App\Http\Controllers\Admin\commYrValueController@getSingle');
+
+    Route::get('admin/organization', 'App\Http\Controllers\Admin\organizationController@index');
+    Route::post('save_organisation', 'App\Http\Controllers\Admin\organizationController@save');
+    Route::post('update_organisation', 'App\Http\Controllers\Admin\organizationController@update');
+    Route::get('get_organisation', 'App\Http\Controllers\Admin\organizationController@get');
+    Route::post('get_organisation/{id}', 'App\Http\Controllers\Admin\organizationController@getSingle');
+    Route::post('delete_organisation/{id}', 'App\Http\Controllers\Admin\organizationController@delete');
+
+    Route::get('admin/country', 'App\Http\Controllers\Admin\countryController@index');
+    Route::post('save_country', 'App\Http\Controllers\Admin\countryController@save');
+    Route::get('get_country', 'App\Http\Controllers\Admin\countryController@get');
+    Route::post('get_country/{id}', 'App\Http\Controllers\Admin\countryController@getSingle');
+    Route::post('update_country', 'App\Http\Controllers\Admin\countryController@update');
+    Route::post('delete_country/{id}', 'App\Http\Controllers\Admin\countryController@delete');
+
+    Route::get('admin/commodity', 'App\Http\Controllers\Admin\commodityController@index');
+    Route::post('save_commodity', 'App\Http\Controllers\Admin\commodityController@save');
+    Route::get('get_commodity', 'App\Http\Controllers\Admin\commodityController@get');
+    Route::post('get_commodity/{id}', 'App\Http\Controllers\Admin\commodityController@getSingle');
+    Route::post('update_commodity', 'App\Http\Controllers\Admin\commodityController@update');
+    Route::post('delete_commodity/{id}', 'App\Http\Controllers\Admin\commodityController@delete');
+
+    Route::get('admin/year', 'App\Http\Controllers\Admin\yearController@index');
+    Route::post('save_year', 'App\Http\Controllers\Admin\yearController@save');
+    Route::get('get_year', 'App\Http\Controllers\Admin\yearController@get');
+    Route::post('get_year/{id}', 'App\Http\Controllers\Admin\yearController@getSingle');
+    Route::post('update_year', 'App\Http\Controllers\Admin\yearController@update');
+    Route::post('delete_year/{id}', 'App\Http\Controllers\Admin\yearController@delete');
+
+    Route::get('/admin/topic', 'App\Http\Controllers\Admin\topicController@index');
+    Route::post('save_topic', 'App\Http\Controllers\Admin\topicController@save_topic');
+    Route::post('update_topic', 'App\Http\Controllers\Admin\topicController@update_topic');
+    Route::post('update_sub_topic', 'App\Http\Controllers\Admin\topicController@update_sub_topic');
+    Route::get('get_topic', 'App\Http\Controllers\Admin\topicController@get');
+    Route::post('get_topic/{id}', 'App\Http\Controllers\Admin\topicController@getSingle');
+    Route::post('delete_topic/{id}', 'App\Http\Controllers\Admin\topicController@delete');
+    Route::post('save_subtopic', 'App\Http\Controllers\Admin\topicController@save_subtopic');
+    Route::get('get_subtopic/{parentId}', 'App\Http\Controllers\Admin\topicController@get_subtopic');
+    Route::get('parent_topic', 'App\Http\Controllers\Admin\topicController@parent_topic');
+    Route::get('up_parent_topic/{parentId}', 'App\Http\Controllers\Admin\topicController@up_parent_topic');
+
+    Route::get('admin/assign_work', 'App\Http\Controllers\Admin\AssignWorkController@AssignWork');
+    Route::post('save_assignwork', 'App\Http\Controllers\Admin\AssignWorkController@save');
+    Route::post('update_assignwork', 'App\Http\Controllers\Admin\AssignWorkController@update');
+    Route::get('allassignwork', 'App\Http\Controllers\Admin\AssignWorkController@get');
+    Route::post('deleteassignwork/{id}', 'App\Http\Controllers\Admin\AssignWorkController@delete');
+    Route::post('deleteSingleAssignwork/{id}', 'App\Http\Controllers\Admin\AssignWorkController@delete_single');
+    Route::post('get_assignwork/{id}/{work_field_id}', 'App\Http\Controllers\Admin\AssignWorkController@getSingle');
+    Route::post('admin/assignWork_upload', 'App\Http\Controllers\Admin\AssignWorkController@assignWork_upload');
+    Route::post('getField/{id}', 'App\Http\Controllers\Admin\AssignWorkController@getField');
+    Route::post('getLink/{id}', 'App\Http\Controllers\Admin\AssignWorkController@getLink');
+
+    Route::get('admin/work_field', 'App\Http\Controllers\Admin\WorkFieldController@index');
+    Route::post('save_work_field', 'App\Http\Controllers\Admin\WorkFieldController@save');
+    Route::post('update_work_field', 'App\Http\Controllers\Admin\WorkFieldController@update');
+    Route::get('allWorkField', 'App\Http\Controllers\Admin\WorkFieldController@get');
+    Route::post('delete_work_field/{id}', 'App\Http\Controllers\Admin\WorkFieldController@delete');
+    Route::post('get_work_field/{id}', 'App\Http\Controllers\Admin\WorkFieldController@getSingle');
+    Route::post('upload_workField', 'App\Http\Controllers\Admin\WorkFieldController@upload_workField');
+
+
+    Route::get('admin/work_file', 'App\Http\Controllers\Admin\WorkFileController@index');
+    Route::post('save_work_file', 'App\Http\Controllers\Admin\WorkFileController@save');
+    Route::post('update_work_file', 'App\Http\Controllers\Admin\WorkFileController@update');
+    Route::get('allWorkFile', 'App\Http\Controllers\Admin\WorkFileController@get');
+    Route::post('delete_work_file/{id}', 'App\Http\Controllers\Admin\WorkFileController@delete');
+    Route::post('get_work_file/{id}', 'App\Http\Controllers\Admin\WorkFileController@getSingle');
+    Route::post('upload_workFile', 'App\Http\Controllers\Admin\WorkFileController@upload_workFile');
+
+
+    Route::get('admin/review_work', 'App\Http\Controllers\Admin\ReviewWorkController@ReviewWork');
+    Route::get('admin/get_work/{id}/{worklink_id}', 'App\Http\Controllers\Admin\ReviewWorkController@get_work');
+    Route::post('update_reviewWorkStatus', 'App\Http\Controllers\Admin\ReviewWorkController@update');
+    Route::post('get_review_work/{id}/{work_link_id}', 'App\Http\Controllers\Admin\ReviewWorkController@getSingle');
+    Route::post('addTable', 'App\Http\Controllers\Admin\ReviewWorkController@addTable');
+    Route::post('get_table/{id}', 'App\Http\Controllers\Admin\ReviewWorkController@getTable');
+    Route::get('deleteTable/{table_id}', 'App\Http\Controllers\Admin\ReviewWorkController@deleteTable');
+    Route::post('updateTable', 'App\Http\Controllers\Admin\ReviewWorkController@updateTable');
+    Route::post('addRemark', 'App\Http\Controllers\Admin\ReviewWorkController@addRemark');
+    Route::get('viewRemark/{table_id}', 'App\Http\Controllers\Admin\ReviewWorkController@viewRemark');
+    Route::post('upload_work', 'App\Http\Controllers\Admin\ReviewWorkController@upload_work');
+    Route::post('upload_pdf', 'App\Http\Controllers\Admin\ReviewWorkController@upload_pdf');
+    Route::post('upload_excel', 'App\Http\Controllers\Admin\ReviewWorkController@upload_excel');
+    Route::post('upload_single_sheet_excel', 'App\Http\Controllers\Admin\ReviewWorkController@upload_single_sheet_excel');
+    Route::post('publish', 'App\Http\Controllers\Admin\ReviewWorkController@publish');
+    Route::get('admin/table_data/{table_id}', 'App\Http\Controllers\Admin\ReviewWorkController@get_table_data');
+    Route::get('getSingleData/{data_id}', 'App\Http\Controllers\Admin\ReviewWorkController@getSingleData');
+    Route::post('updateData', 'App\Http\Controllers\Admin\ReviewWorkController@updateData');
+    Route::get('deleteData/{data_id}', 'App\Http\Controllers\Admin\ReviewWorkController@deleteData');
+    Route::post('ApproveTable', 'App\Http\Controllers\Admin\ReviewWorkController@ApproveTable');
+    Route::post('UnapproveTable', 'App\Http\Controllers\Admin\ReviewWorkController@UnapproveTable');
+    Route::post('DeleteAll', 'App\Http\Controllers\Admin\ReviewWorkController@DeleteAll');
+    Route::post('changeTableStatus', 'App\Http\Controllers\Admin\ReviewWorkController@changeTableStatus');
+    Route::get('admin/tabular/{table_id}', 'App\Http\Controllers\Admin\ReviewWorkController@tabular');
+    Route::get('admin/view_pdf', 'App\Http\Controllers\Admin\ReviewWorkController@view_pdf');
+    Route::post('addTopicTag', 'App\Http\Controllers\Admin\ReviewWorkController@addTopicTag');
+    Route::get('viewTopicTag/{table_id}', 'App\Http\Controllers\Admin\ReviewWorkController@viewTopicTag');
+    Route::post('updateTopicTag', 'App\Http\Controllers\Admin\ReviewWorkController@updateTopicTag');
+    Route::get('deleteTopicTag/{table_id}', 'App\Http\Controllers\Admin\ReviewWorkController@deleteTopicTag');
+    
+
+    Route::get('admin/change_password', 'App\Http\Controllers\Admin\changePasswordController@index');
+    Route::post('/save_change_password', 'App\Http\Controllers\Admin\changePasswordController@save_change_password');
+    Route::get('admin/message', 'App\Http\Controllers\Admin\messageController@index');
+    Route::post('/save_change_password', 'App\Http\Controllers\Admin\changePasswordController@save_change_password');
+
+    Route::get('admin/message', 'App\Http\Controllers\Admin\messageController@index');
+
+    Route::get('admin/payment', 'App\Http\Controllers\Admin\paymentController@index');
+    Route::post('paymentDate', 'App\Http\Controllers\Admin\paymentController@update');
+
+    Route::get('admin/data', 'App\Http\Controllers\Admin\DataController@index');
+    Route::get('alldata', 'App\Http\Controllers\Admin\DataController@get');
+    //Route::get('alldata', 'App\Http\Controllers\Admin\DataController@get');
+    Route::get('get_tables/{user_id}', 'App\Http\Controllers\Admin\DataController@get_tables');
+    Route::get('get_table_data/{table_id}', 'App\Http\Controllers\Admin\DataController@get_table_data');
+    Route::get('get_paricular_data/{data_id}', 'App\Http\Controllers\Admin\DataController@get_paricular_data');
+    Route::post('update_particular_data', 'App\Http\Controllers\Admin\DataController@update_particular_data');
+    Route::get('delete_particular_data/{data_id}', 'App\Http\Controllers\Admin\DataController@delete_particular_data');
+
+    Route::get('admin/add_tagging', 'App\Http\Controllers\Admin\TagingController@index');
+    Route::post('addTaging', 'App\Http\Controllers\Admin\TagingController@addTaging');
+    Route::post('deleteTag/{id}', 'App\Http\Controllers\Admin\TagingController@deleteTaging');
+    Route::get('admin/getTagging/{id}', 'App\Http\Controllers\Admin\TagingController@getTaging');
+    Route::get('last_sub_topic/{id}', 'App\Http\Controllers\Admin\TagingController@getLastSubTopic');
+    Route::get('admin/view_tagging', 'App\Http\Controllers\Admin\TagingController@view');
+    Route::post('updateTaging', 'App\Http\Controllers\Admin\TagingController@updateTaging');
+    Route::get('get_states', 'App\Http\Controllers\Admin\TagingController@states');
+    Route::get('get_districts/{id}', 'App\Http\Controllers\Admin\TagingController@districts');
+    Route::get('get_tables', 'App\Http\Controllers\Admin\TagingController@get_tables');
+
+    Route::get('admin/compare', 'App\Http\Controllers\Admin\CompareController@index');
+    Route::post('get_data/{id}', 'App\Http\Controllers\Admin\CompareController@get');
+    Route::post('ApproveData', 'App\Http\Controllers\Admin\CompareController@ApproveData');
+
+    Route::get('admin/combine', 'App\Http\Controllers\Admin\CombineController@index');
+    Route::post('get_combine_data', 'App\Http\Controllers\Admin\CombineController@get_combine_data');
+    Route::post('combine_data', 'App\Http\Controllers\Admin\CombineController@combine_data');
+    Route::get('getDataTable/{data_id}', 'App\Http\Controllers\Admin\CombineController@getDataTable');
+    Route::post('updateDataTable', 'App\Http\Controllers\Admin\CombineController@updateDataTable');
+    Route::get('delete_merge_data/{data_id}', 'App\Http\Controllers\Admin\CombineController@delete_merge_data');
+    Route::post('approveMergeTableAndData', 'App\Http\Controllers\Admin\CombineController@approveMergeTableAndData');
+    Route::post('unApproveMergeTableAndData', 'App\Http\Controllers\Admin\CombineController@unApproveMergeTableAndData');
+
+    Route::get('admin/scrapping', 'App\Http\Controllers\Admin\scrapeController@index');
+    Route::post('add_website', 'App\Http\Controllers\Admin\scrapeController@add_website');
+    Route::post('upload_scraping_excel', 'App\Http\Controllers\Admin\scrapeController@upload_scraping_excel');
+    Route::post('updateScrappingTable', 'App\Http\Controllers\Admin\scrapeController@updateScrappingTable');
+    Route::get('admin/scrape_economy', 'App\Http\Controllers\Admin\scrapeController@scrape_economy');
+});
